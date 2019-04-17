@@ -10,6 +10,7 @@ import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -110,7 +111,14 @@ if(btnNewButton_2.isEnabled()) {
 						user=textField_2.getText();
 						password= new String (passwordField.getPassword());
 						System.out.println(endereco+ " "+endereco2+" "+password+" "+user);
-						AutoSapiens.executar(user, password, endereco, endereco2 );
+						try
+						{
+							AutoSapiens.executar(user, password, endereco, endereco2 );
+						} catch (IOException e1)
+						{
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						
 					} catch (AWTException e1)
 					{

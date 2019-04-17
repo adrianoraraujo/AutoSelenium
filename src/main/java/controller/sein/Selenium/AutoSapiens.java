@@ -30,7 +30,7 @@ import net.bytebuddy.jar.asm.commons.TryCatchBlockSorter;
 public class AutoSapiens
 {
 
-	public static void executar(  String user, String password, String endereco, String endereco2) throws AWTException, InterruptedException
+	public static void executar(  String user, String password, String endereco, String endereco2) throws AWTException, InterruptedException, IOException
 	{
 		WebDriver driver;
 		WebElement element;
@@ -89,6 +89,8 @@ public class AutoSapiens
 		button = driver.findElement(By.id("splitbutton-1011"));
 		Actions act = new Actions(driver);
 		Thread.sleep(8000);
+		FileWriter arq2 = new FileWriter(endereco2);
+
 		try
 		{
 			
@@ -121,14 +123,16 @@ public class AutoSapiens
 		resposta.add("sem judicial no momento");
 	}
 
-
+	conteudo = resposta.get(i);
+    conteudo += "\r\n";
+    arq2.write(conteudo);
 			}
 		} catch (Exception e)
 		{
 		System.out.println("Não foi possível pesquisar os NUPs");	// TODO: handle exception
 		} 
 			// Aqui termina a pesquisa
-		 try	{
+		/**		 try	{
 FileWriter arq2 = new FileWriter(endereco2);
 	           
 	            
@@ -148,9 +152,10 @@ FileWriter arq2 = new FileWriter(endereco2);
 	        }catch (IOException e)  {
 	                e.printStackTrace();
 	        }
-			
-			
-JOptionPane.showMessageDialog(null, "A Pesquisa foi concluída, favor verificar o arquivo de pesquisa", "PESQUISA AUTOMÁTICA SEIN", JOptionPane.WARNING_MESSAGE);
+			*/
+        arq2.close();
+
+JOptionPane.showMessageDialog(null, "A Pesquisa foi concluída, favor verificar o arquivo de pesquisa", "CAMALEÃO SEIN", JOptionPane.WARNING_MESSAGE);
 
 driver.close();
 	}

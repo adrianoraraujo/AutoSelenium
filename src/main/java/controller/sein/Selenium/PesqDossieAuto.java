@@ -31,7 +31,7 @@ import net.bytebuddy.jar.asm.commons.TryCatchBlockSorter;
 public class PesqDossieAuto
 {
 
-	public static void tete( String user, String password, String endereco, String endereco2) throws AWTException, InterruptedException
+	public static void tete( String user, String password, String endereco, String endereco2) throws AWTException, InterruptedException, IOException
 	{
 		WebDriver driver;
 		int ts,te;
@@ -101,6 +101,8 @@ try {
 		button = driver.findElement(By.id("splitbutton-1011"));
 		Actions act = new Actions(driver);
 		Thread.sleep(8000);
+		FileWriter arq2 = new FileWriter(endereco2);
+
 		for (int i = 0; i < cpfcnpj.size()-1; i++)
 		{Thread.sleep(5000);
 		act.moveToElement(button).moveByOffset(40, 0).click().perform();
@@ -153,6 +155,9 @@ if(i==0) {
 				 
 			System.out.println(test);
 				 resposta.add(esta);
+				
+
+				 //------------------------->>> colocar para salvar o arquivo aqui
 			}
 			else if (exist==false) {
 				driver.findElement(By.id("button-1005-btnIconEl")).click();
@@ -222,10 +227,16 @@ if(i==0) {
 		resposta.add(test);
 		}**/
 		resposta.add("sem dossie SEIN");
+		
+
 		}
+		 conteudo = resposta.get(i);
+		    conteudo += "\r\n";
+		    arq2.write(conteudo);
+        
 			}
-		 try	{
-FileWriter arq2 = new FileWriter(endereco2);
+		 /**try	{
+//FileWriter arq2 = new FileWriter(endereco2);
 	           
 	            
 	            for (int i=0; i<resposta.size();i++)
@@ -243,10 +254,10 @@ FileWriter arq2 = new FileWriter(endereco2);
 	            arq2.close();
 	        }catch (IOException e)  {
 	                e.printStackTrace();
-	        }
+	        }*/
 			
-			
-JOptionPane.showMessageDialog(null, "A Pesquisa foi concluída, favor verificar o arquivo de pesquisa", "PESQUISA AUTOMÁTICA SEIN", JOptionPane.WARNING_MESSAGE);
+		 arq2.close();	
+JOptionPane.showMessageDialog(null, "A Pesquisa foi concluída, favor verificar o arquivo de pesquisa", "CAMALEÃO SEIN", JOptionPane.WARNING_MESSAGE);
 	driver.close();
 	}
 		

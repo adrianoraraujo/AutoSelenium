@@ -61,7 +61,7 @@ public class TelaIni extends JFrame
 	public TelaIni()
 	{
 		setType(Type.POPUP);
-		setTitle("Pesquisa Autom\u00E1tica DIN - ENAC");
+		setTitle("Camaleão DIN - ENAC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 564, 388);
 		
@@ -120,8 +120,8 @@ public class TelaIni extends JFrame
 			public void actionPerformed(ActionEvent e) {
 				
 				if(mntmSobre.isEnabled()) {
-					JOptionPane.showMessageDialog(null, "Programa desenvolvido por desenvolvimento SEIN - ENAC  \r\nEste programa tem os objetivos de realizar pesquisas autom�ticas de dossi�s e n�meros judiciais.  \r\n"
-							+"Para maiores informa��es clique em help \r\nVers�o 1.1 beta" , "Pesquisa Autom�tica DIN - ENAC (Sobre)", 1);
+					JOptionPane.showMessageDialog(null, "Programa desenvolvido por desenvolvimento SEIN - ENAC  \r\nEste programa tem os objetivos de realizar pesquisas automáticas de dossiês e números judiciais.  \r\n"
+							+"Para maiores informações clique em help \r\nVersão 1.2 beta" , "Camaleão DIN - ENAC (Sobre)", 1);
 						}
 			}
 		});
@@ -154,7 +154,7 @@ public class TelaIni extends JFrame
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		Icon img = new ImageIcon("braso.PNG");
+		Icon img = new ImageIcon("camaleao.gif");
 		
 contentPane.add(new JLabel(img), BorderLayout.CENTER);
 		
